@@ -65,7 +65,7 @@
       xhr = new XMLHttpRequest();
       type = opts && opts.type || file.type || "application/octet-stream";
       name = opts && opts.name || file.name;
-      xhr.open('GET', this.s3_sign_put_url + '?s3_object_type=' + type + '&s3_object_name=' + encodeURIComponent(name), true);
+      xhr.open('GET', this.s3_sign_put_url + '?s3_object_type=' + type + '&s3_object_name=' + encodeURIComponent(name) + '&acl_value=' + this.acl_value, true);
       xhr.overrideMimeType('text/plain; charset=x-user-defined');
       xhr.onreadystatechange = function(e) {
         var error, result;
