@@ -3,6 +3,8 @@
     S3Upload.prototype.s3_sign_put_url = '/signS3put';
 
     S3Upload.prototype.file_dom_selector = '#file_upload';
+    
+    S3Upload.prototype.acl_value = 'public-read'
 
     S3Upload.prototype.onFinishS3Put = function(public_url, file) {
       return console.log('base.onFinishS3Put()', public_url, file);
@@ -111,7 +113,7 @@
         };
       }
       xhr.setRequestHeader('Content-Type', type);
-      xhr.setRequestHeader('x-amz-acl', 'public-read');
+      xhr.setRequestHeader('x-amz-acl', this.acl_value);
       return xhr.send(file);
     };
 
